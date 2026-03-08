@@ -6,14 +6,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Rocket, Target, Users, MessageSquare, Receipt, Shield, Zap, Send, ArrowLeft, MoreVertical, Sparkles, User, Briefcase, Layout } from "lucide-react";
 
 const agents = {
-  visionary: { name: "The Visionary", icon: <Rocket className="h-5 w-5" />, color: "bg-orange-600" },
-  webwizard: { name: "WebWizard", icon: <Layout className="h-5 w-5" />, color: "bg-teal-600" },
-  "lead-magnet": { name: "LeadMagnet", icon: <Target className="h-5 w-5" />, color: "bg-red-600" },
+  visionary: { name: "The Visionary", icon: <Rocket className="h-5 w-5" />, color: "bg-violet-600" },
+  webwizard: { name: "WebWizard", icon: <Layout className="h-5 w-5" />, color: "bg-cyan-600" },
+  "lead-magnet": { name: "LeadMagnet", icon: <Target className="h-5 w-5" />, color: "bg-rose-600" },
   saleflow: { name: "SaleFlow", icon: <Users className="h-5 w-5" />, color: "bg-blue-600" },
-
   supportbot: { name: "SupportBot", icon: <MessageSquare className="h-5 w-5" />, color: "bg-emerald-600" },
   ledgerlink: { name: "LedgerLink", icon: <Receipt className="h-5 w-5" />, color: "bg-amber-600" },
-  autopilot: { name: "AutoPilot", icon: <Zap className="h-5 w-5" />, color: "bg-purple-600" },
+  autopilot: { name: "AutoPilot", icon: <Zap className="h-5 w-5" />, color: "bg-fuchsia-600" },
 };
 
 export default function AgentChat() {
@@ -76,7 +75,7 @@ export default function AgentChat() {
         </div>
         <div className="flex items-center space-x-2">
           <Button variant="outline" size="sm" className="hidden rounded-full border-slate-200 sm:flex">
-            <Briefcase className="mr-2 h-4 w-4 text-orange-600" />
+            <Briefcase className="mr-2 h-4 w-4 text-violet-600" />
             Business Settings
           </Button>
           <Button variant="ghost" size="icon" className="rounded-full">
@@ -95,10 +94,10 @@ export default function AgentChat() {
                   key={i}
                   className={`flex items-start space-x-4 ${msg.role === "user" ? "flex-row-reverse space-x-reverse" : ""}`}
                 >
-                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl shadow-sm ${msg.role === "user" ? "bg-orange-600 text-white" : "bg-white ring-1 ring-slate-200"}`}>
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl shadow-sm ${msg.role === "user" ? "bg-violet-600 text-white" : "bg-white ring-1 ring-slate-200"}`}>
                     {msg.role === "user" ? <User className="h-6 w-6" /> : agent.icon}
                   </div>
-                  <div className={`group relative max-w-[80%] rounded-2xl px-5 py-3 shadow-sm ${msg.role === "user" ? "bg-orange-600 text-white" : "bg-white text-slate-700 ring-1 ring-slate-200"}`}>
+                  <div className={`group relative max-w-[80%] rounded-2xl px-5 py-3 shadow-sm ${msg.role === "user" ? "bg-violet-600 text-white" : "bg-white text-slate-700 ring-1 ring-slate-200"}`}>
                     <p className="whitespace-pre-wrap leading-relaxed">{msg.content}</p>
                     <span className={`absolute -bottom-6 text-[10px] font-medium text-slate-400 opacity-0 transition-opacity group-hover:opacity-100 ${msg.role === "user" ? "right-0" : "left-0"}`}>
                       {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -120,22 +119,21 @@ export default function AgentChat() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
               placeholder={`Instruct ${agent.name}...`}
-              className="h-14 rounded-2xl border-slate-200 bg-slate-50 pr-14 text-base focus-visible:ring-orange-600"
+              className="h-14 rounded-2xl border-slate-200 bg-slate-50 pr-14 text-base focus-visible:ring-violet-600"
             />
             <Button
               onClick={handleSend}
               disabled={!input.trim()}
-              className="absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-xl bg-orange-600 p-0 text-white hover:bg-orange-700 disabled:bg-slate-200"
+              className="absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-xl bg-violet-600 p-0 text-white hover:bg-violet-700 disabled:bg-slate-200"
             >
               <Send className="h-5 w-5" />
             </Button>
           </div>
           <p className="mt-3 text-center text-[10px] font-medium text-slate-400">
-            Powered by boostBizFlow Business Logic Engine. Private & Secure.
+            Powered by BoostaBizFlow Business Logic Engine. Private & Secure.
           </p>
         </div>
       </div>
-
     </div>
   );
 }

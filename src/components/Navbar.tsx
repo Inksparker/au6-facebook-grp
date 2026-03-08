@@ -18,20 +18,20 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center space-x-2">
-          <div className="rounded-lg bg-orange-600 p-1.5">
+          <div className="rounded-lg bg-violet-600 p-1.5 shadow-lg shadow-violet-200">
             <Zap className="h-6 w-6 text-white" />
           </div>
           <span className="text-xl font-bold tracking-tight text-foreground">
-            boostBiz<span className="text-orange-600">Flow</span>
+            BoostaBiz<span className="text-violet-600">Flow</span>
           </span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex md:items-center md:space-x-8">
-          <Link to="/#features" className="text-sm font-medium transition-colors hover:text-orange-600">
+          <Link to="/#features" className="text-sm font-medium transition-colors hover:text-violet-600">
             Features
           </Link>
-          <Link to="/pricing" className="text-sm font-medium transition-colors hover:text-orange-600">
+          <Link to="/pricing" className="text-sm font-medium transition-colors hover:text-violet-600">
             Pricing
           </Link>
 
@@ -46,30 +46,30 @@ export function Navbar() {
             <DropdownMenuContent align="end" className="rounded-xl p-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <DropdownMenuItem 
                 onClick={() => setCurrency("USD")}
-                className="rounded-lg px-4 py-2 text-sm text-slate-700 cursor-pointer hover:bg-orange-50 hover:text-orange-600"
+                className="rounded-lg px-4 py-2 text-sm text-slate-700 cursor-pointer hover:bg-violet-50 hover:text-violet-600"
               >
                 🇺🇸 USD ($)
               </DropdownMenuItem>
               <DropdownMenuItem 
                 onClick={() => setCurrency("GBP")}
-                className="rounded-lg px-4 py-2 text-sm text-slate-700 cursor-pointer hover:bg-orange-50 hover:text-orange-600"
+                className="rounded-lg px-4 py-2 text-sm text-slate-700 cursor-pointer hover:bg-violet-50 hover:text-violet-600"
               >
                 🇬🇧 GBP (£)
               </DropdownMenuItem>
               <DropdownMenuItem 
                 onClick={() => setCurrency("CAD")}
-                className="rounded-lg px-4 py-2 text-sm text-slate-700 cursor-pointer hover:bg-orange-50 hover:text-orange-600"
+                className="rounded-lg px-4 py-2 text-sm text-slate-700 cursor-pointer hover:bg-violet-50 hover:text-violet-600"
               >
                 🇨🇦 CAD (C$)
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link to="/login" className="text-sm font-medium transition-colors hover:text-orange-600">
+          <Link to="/login" className="text-sm font-medium transition-colors hover:text-violet-600">
             Login
           </Link>
           <Link to="/signup">
-            <Button className="rounded-full bg-orange-600 px-6 hover:bg-orange-700">
+            <Button className="rounded-full bg-violet-600 px-6 hover:bg-violet-700 shadow-md shadow-violet-100">
               Get Started
             </Button>
           </Link>
@@ -96,7 +96,7 @@ export function Navbar() {
                 variant={currency === "USD" ? "default" : "outline"} 
                 size="sm" 
                 onClick={() => setCurrency("USD")}
-                className={currency === "USD" ? "bg-orange-600" : ""}
+                className={currency === "USD" ? "bg-violet-600" : ""}
               >
                 USD
               </Button>
@@ -104,7 +104,7 @@ export function Navbar() {
                 variant={currency === "GBP" ? "default" : "outline"} 
                 size="sm" 
                 onClick={() => setCurrency("GBP")}
-                className={currency === "GBP" ? "bg-orange-600" : ""}
+                className={currency === "GBP" ? "bg-violet-600" : ""}
               >
                 GBP
               </Button>
@@ -112,7 +112,7 @@ export function Navbar() {
                 variant={currency === "CAD" ? "default" : "outline"} 
                 size="sm" 
                 onClick={() => setCurrency("CAD")}
-                className={currency === "CAD" ? "bg-orange-600" : ""}
+                className={currency === "CAD" ? "bg-violet-600" : ""}
               >
                 CAD
               </Button>
@@ -120,27 +120,27 @@ export function Navbar() {
           </div>
           <Link
             to="/#features"
-            className="block text-base font-medium transition-colors hover:text-orange-600"
+            className="block text-base font-medium transition-colors hover:text-violet-600"
             onClick={() => setIsMenuOpen(false)}
           >
             Features
           </Link>
           <Link
             to="/pricing"
-            className="block text-base font-medium transition-colors hover:text-orange-600"
+            className="block text-base font-medium transition-colors hover:text-violet-600"
             onClick={() => setIsMenuOpen(false)}
           >
             Pricing
           </Link>
           <Link
             to="/login"
-            className="block text-base font-medium transition-colors hover:text-orange-600"
+            className="block text-base font-medium transition-colors hover:text-violet-600"
             onClick={() => setIsMenuOpen(false)}
           >
             Login
           </Link>
           <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
-            <Button className="w-full rounded-full bg-orange-600 hover:bg-orange-700">
+            <Button className="w-full rounded-full bg-violet-600 hover:bg-violet-700">
               Get Started
             </Button>
           </Link>

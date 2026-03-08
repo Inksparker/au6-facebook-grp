@@ -55,7 +55,7 @@ export default function Pricing() {
     <div className="min-h-screen bg-slate-50 py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-orange-600 font-semibold tracking-wide uppercase">Business Pricing</h2>
+          <h2 className="text-violet-600 font-semibold tracking-wide uppercase">Business Pricing</h2>
           <p className="mt-2 text-4xl font-extrabold text-slate-900 sm:text-5xl">
             Investment in your time.
           </p>
@@ -66,9 +66,9 @@ export default function Pricing() {
 
         <div className="mt-20 grid gap-8 lg:grid-cols-3">
           {tiers.map((tier) => (
-            <Card key={tier.name} className={`relative flex flex-col rounded-3xl border-2 transition-all hover:shadow-xl ${tier.popular ? 'border-orange-600 shadow-orange-100 scale-105' : 'border-white'}`}>
+            <Card key={tier.name} className={`relative flex flex-col rounded-3xl border-2 transition-all hover:shadow-xl ${tier.popular ? 'border-violet-600 shadow-violet-100 scale-105' : 'border-white'}`}>
               {tier.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-orange-600 px-4 py-1 text-sm font-semibold text-white">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-violet-600 px-4 py-1 text-sm font-semibold text-white">
                   Best Value
                 </div>
               )}
@@ -84,7 +84,7 @@ export default function Pricing() {
                 <ul className="space-y-4">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start space-x-3">
-                      <Check className="h-5 w-5 flex-shrink-0 text-orange-600" />
+                      <Check className="h-5 w-5 flex-shrink-0 text-violet-600" />
                       <span className="text-slate-700">{feature}</span>
                     </li>
                   ))}
@@ -92,7 +92,7 @@ export default function Pricing() {
               </CardContent>
               <CardFooter>
                 <Link to="/signup" className="w-full">
-                  <Button className={`w-full rounded-xl py-6 text-lg font-semibold ${tier.popular ? 'bg-orange-600 hover:bg-orange-700 text-white' : 'bg-white border-2 border-orange-600 text-orange-600 hover:bg-orange-50'}`}>
+                  <Button className={`w-full rounded-xl py-6 text-lg font-semibold ${tier.popular ? 'bg-violet-600 hover:bg-violet-700 text-white' : 'bg-white border-2 border-violet-600 text-violet-600 hover:bg-violet-50'}`}>
                     {tier.buttonText}
                   </Button>
                 </Link>
