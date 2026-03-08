@@ -12,6 +12,9 @@ export default function Pricing() {
       name: "Solopreneur",
       basePrice: 0,
       description: "Ideal for starting your business journey.",
+      accent: "violet",
+      colorClass: "border-violet-200",
+      buttonClass: "border-violet-600 text-violet-600 hover:bg-violet-50",
       features: [
         "Access to SupportBot",
         "Business Idea Validation",
@@ -25,6 +28,9 @@ export default function Pricing() {
       name: "Business Pro",
       basePrice: 49,
       description: "Everything you need to automate & grow.",
+      accent: "blue",
+      colorClass: "border-blue-600 shadow-blue-100",
+      buttonClass: "bg-gradient-to-r from-violet-600 to-blue-600 text-white",
       features: [
         "All Basic features",
         "Unlimited Lead Generation",
@@ -39,6 +45,9 @@ export default function Pricing() {
       name: "Agency / Enterprise",
       basePrice: 199,
       description: "For teams and high-volume operations.",
+      accent: "cyan",
+      colorClass: "border-cyan-200",
+      buttonClass: "border-cyan-600 text-cyan-600 hover:bg-cyan-50",
       features: [
         "Everything in Pro",
         "Custom Legal Tool drafting",
@@ -55,7 +64,7 @@ export default function Pricing() {
     <div className="min-h-screen bg-slate-50 py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-violet-600 font-semibold tracking-wide uppercase">Business Pricing</h2>
+          <h2 className="bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent font-bold tracking-wide uppercase">Business Pricing</h2>
           <p className="mt-2 text-4xl font-extrabold text-slate-900 sm:text-5xl">
             Investment in your time.
           </p>
@@ -66,9 +75,9 @@ export default function Pricing() {
 
         <div className="mt-20 grid gap-8 lg:grid-cols-3">
           {tiers.map((tier) => (
-            <Card key={tier.name} className={`relative flex flex-col rounded-3xl border-2 transition-all hover:shadow-xl ${tier.popular ? 'border-violet-600 shadow-violet-100 scale-105' : 'border-white'}`}>
+            <Card key={tier.name} className={`relative flex flex-col rounded-3xl border-2 transition-all hover:shadow-xl ${tier.colorClass} ${tier.popular ? 'scale-105 z-10' : 'bg-white'}`}>
               {tier.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-violet-600 px-4 py-1 text-sm font-semibold text-white">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-violet-600 to-blue-600 px-4 py-1 text-sm font-semibold text-white">
                   Best Value
                 </div>
               )}
@@ -84,7 +93,7 @@ export default function Pricing() {
                 <ul className="space-y-4">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start space-x-3">
-                      <Check className="h-5 w-5 flex-shrink-0 text-violet-600" />
+                      <Check className={`h-5 w-5 flex-shrink-0 ${tier.accent === 'violet' ? 'text-violet-600' : tier.accent === 'blue' ? 'text-blue-600' : 'text-cyan-600'}`} />
                       <span className="text-slate-700">{feature}</span>
                     </li>
                   ))}
@@ -92,7 +101,7 @@ export default function Pricing() {
               </CardContent>
               <CardFooter>
                 <Link to="/signup" className="w-full">
-                  <Button className={`w-full rounded-xl py-6 text-lg font-semibold ${tier.popular ? 'bg-violet-600 hover:bg-violet-700 text-white' : 'bg-white border-2 border-violet-600 text-violet-600 hover:bg-violet-50'}`}>
+                  <Button className={`w-full rounded-xl py-6 text-lg font-semibold transition-all ${tier.buttonClass}`}>
                     {tier.buttonText}
                   </Button>
                 </Link>

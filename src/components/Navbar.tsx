@@ -18,11 +18,14 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center space-x-2">
-          <div className="rounded-lg bg-violet-600 p-1.5 shadow-lg shadow-violet-200">
-            <Zap className="h-6 w-6 text-white" />
+          <div className="relative">
+            <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 opacity-75 blur-sm animate-pulse"></div>
+            <div className="relative rounded-lg bg-white p-1.5 shadow-sm">
+              <Zap className="h-6 w-6 text-violet-600" />
+            </div>
           </div>
           <span className="text-xl font-bold tracking-tight text-foreground">
-            BoostaBiz<span className="text-violet-600">Flow</span>
+            Boosta<span className="bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">BizFlow</span>
           </span>
         </Link>
 
@@ -69,7 +72,7 @@ export function Navbar() {
             Login
           </Link>
           <Link to="/signup">
-            <Button className="rounded-full bg-violet-600 px-6 hover:bg-violet-700 shadow-md shadow-violet-100">
+            <Button className="rounded-full bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 px-6 font-semibold text-white hover:opacity-90 shadow-md">
               Get Started
             </Button>
           </Link>
@@ -140,7 +143,7 @@ export function Navbar() {
             Login
           </Link>
           <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
-            <Button className="w-full rounded-full bg-violet-600 hover:bg-violet-700">
+            <Button className="w-full rounded-full bg-gradient-to-r from-violet-600 to-blue-600 text-white">
               Get Started
             </Button>
           </Link>
