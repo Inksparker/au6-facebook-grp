@@ -2,12 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCurrency } from "@/context/CurrencyContext";
 
 export default function Pricing() {
+  const { formatPrice } = useCurrency();
+
   const tiers = [
     {
       name: "Solopreneur",
-      price: "$0",
+      priceUSD: 0,
       description: "Ideal for starting your business journey.",
       features: [
         "Access to SupportBot",
@@ -20,7 +23,7 @@ export default function Pricing() {
     },
     {
       name: "Business Pro",
-      price: "$49",
+      priceUSD: 49,
       description: "Everything you need to automate & grow.",
       features: [
         "All Basic features",
@@ -34,7 +37,7 @@ export default function Pricing() {
     },
     {
       name: "Agency / Enterprise",
-      price: "$199",
+      priceUSD: 199,
       description: "For teams and high-volume operations.",
       features: [
         "Everything in Pro",
@@ -75,7 +78,7 @@ export default function Pricing() {
               </CardHeader>
               <CardContent className="flex-grow">
                 <div className="mb-8">
-                  <span className="text-5xl font-extrabold text-slate-900">{tier.price}</span>
+                  <span className="text-5xl font-extrabold text-slate-900">{formatPrice(tier.priceUSD)}</span>
                   <span className="text-slate-600">/mo</span>
                 </div>
                 <ul className="space-y-4">
