@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Search, Rocket, Target, Users, MessageSquare, Receipt, Zap, Sparkles, TrendingUp } from "lucide-react";
+import { Search, Rocket, Target, Users, MessageSquare, Receipt, Zap, Sparkles, TrendingUp, Layout } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useCurrency } from "@/context/CurrencyContext";
@@ -17,8 +17,18 @@ const agents = [
     status: "Premium",
   },
   {
+    id: "webwizard",
+    name: "WebWizard",
+    description: "Build high-converting landing pages and websites in minutes.",
+    icon: <Layout className="h-6 w-6 text-teal-600" />,
+    category: "Growth",
+    color: "bg-teal-50",
+    status: "Premium",
+  },
+  {
     id: "lead-magnet",
     name: "LeadMagnet",
+
     description: "AI-driven prospect finding and automated outreach sequences.",
     icon: <Target className="h-6 w-6 text-red-600" />,
     category: "Sales",

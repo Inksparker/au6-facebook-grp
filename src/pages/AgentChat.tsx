@@ -3,12 +3,14 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Rocket, Target, Users, MessageSquare, Receipt, Shield, Zap, Send, ArrowLeft, MoreVertical, Sparkles, User, Briefcase } from "lucide-react";
+import { Rocket, Target, Users, MessageSquare, Receipt, Shield, Zap, Send, ArrowLeft, MoreVertical, Sparkles, User, Briefcase, Layout } from "lucide-react";
 
 const agents = {
   visionary: { name: "The Visionary", icon: <Rocket className="h-5 w-5" />, color: "bg-orange-600" },
+  webwizard: { name: "WebWizard", icon: <Layout className="h-5 w-5" />, color: "bg-teal-600" },
   "lead-magnet": { name: "LeadMagnet", icon: <Target className="h-5 w-5" />, color: "bg-red-600" },
   saleflow: { name: "SaleFlow", icon: <Users className="h-5 w-5" />, color: "bg-blue-600" },
+
   supportbot: { name: "SupportBot", icon: <MessageSquare className="h-5 w-5" />, color: "bg-emerald-600" },
   ledgerlink: { name: "LedgerLink", icon: <Receipt className="h-5 w-5" />, color: "bg-amber-600" },
   autopilot: { name: "AutoPilot", icon: <Zap className="h-5 w-5" />, color: "bg-purple-600" },
