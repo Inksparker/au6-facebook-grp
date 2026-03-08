@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { BrainCircuit, Menu, X } from "lucide-react";
+import { Zap, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export function Navbar() {
@@ -10,11 +10,11 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center space-x-2">
-          <div className="rounded-lg bg-indigo-600 p-1.5">
-            <BrainCircuit className="h-6 w-6 text-white" />
+          <div className="rounded-lg bg-orange-600 p-1.5">
+            <Zap className="h-6 w-6 text-white" />
           </div>
           <span className="text-xl font-bold tracking-tight text-foreground">
-            Agent<span className="text-indigo-600">Hub</span>
+            Biz<span className="text-orange-600">Flow</span>
           </span>
         </Link>
 
@@ -30,7 +30,7 @@ export function Navbar() {
             Login
           </Link>
           <Link to="/signup">
-            <Button className="rounded-full bg-indigo-600 px-6 hover:bg-indigo-700">
+            <Button className="rounded-full bg-orange-600 px-6 hover:bg-orange-700">
               Get Started
             </Button>
           </Link>
@@ -72,11 +72,12 @@ export function Navbar() {
             Login
           </Link>
           <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
-            <Button className="w-full rounded-full bg-indigo-600 hover:bg-indigo-700">
+            <Button className="w-full rounded-full bg-orange-600 hover:bg-orange-700">
               Get Started
             </Button>
           </Link>
         </div>
+
       )}
     </nav>
   );
