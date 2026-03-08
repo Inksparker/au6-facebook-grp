@@ -22,7 +22,7 @@ export function Navbar() {
             <Zap className="h-6 w-6 text-white" />
           </div>
           <span className="text-xl font-bold tracking-tight text-foreground">
-            Biz<span className="text-orange-600">Flow</span>
+            boostBiz<span className="text-orange-600">Flow</span>
           </span>
         </Link>
 

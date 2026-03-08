@@ -132,9 +132,10 @@ export default function Index() {
         <div className="container mx-auto px-4 text-center text-white sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold sm:text-4xl">Ready to scale your business?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-orange-100">
-            Join 5,000+ small businesses automating their workflow with BizFlow.
+            Join 5,000+ small businesses automating their workflow with boostBizFlow.
           </p>
           <div className="mt-8 flex justify-center space-x-4">
+
             <Link to="/signup">
               <Button size="lg" className="h-12 bg-white px-8 text-orange-600 hover:bg-orange-50">
                 Start Free Trial
@@ -149,13 +150,14 @@ export default function Index() {
         <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
           <div className="flex items-center justify-center space-x-2 text-orange-600 font-bold mb-4">
              <Briefcase className="h-6 w-6" />
-             <span>BizFlow</span>
+             <span>boostBizFlow</span>
           </div>
           <p className="text-slate-500 text-sm">
-            © 2024 BizFlow. All rights reserved. Helping small businesses thrive.
+            © 2024 boostBizFlow. All rights reserved. Helping small businesses thrive.
           </p>
         </div>
       </footer>
+
     </div>
   );
 }

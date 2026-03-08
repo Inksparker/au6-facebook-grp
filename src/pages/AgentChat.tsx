@@ -131,10 +131,11 @@ export default function AgentChat() {
             </Button>
           </div>
           <p className="mt-3 text-center text-[10px] font-medium text-slate-400">
-            Powered by BizFlow Business Logic Engine. Private & Secure.
+            Powered by boostBizFlow Business Logic Engine. Private & Secure.
           </p>
         </div>
       </div>
+
     </div>
   );
 }
