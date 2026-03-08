@@ -10,7 +10,7 @@ export default function Pricing() {
   const tiers = [
     {
       name: "Solopreneur",
-      priceUSD: 0,
+      basePrice: 0,
       description: "Ideal for starting your business journey.",
       features: [
         "Access to SupportBot",
@@ -23,7 +23,7 @@ export default function Pricing() {
     },
     {
       name: "Business Pro",
-      priceUSD: 49,
+      basePrice: 49,
       description: "Everything you need to automate & grow.",
       features: [
         "All Basic features",
@@ -37,7 +37,7 @@ export default function Pricing() {
     },
     {
       name: "Agency / Enterprise",
-      priceUSD: 199,
+      basePrice: 199,
       description: "For teams and high-volume operations.",
       features: [
         "Everything in Pro",
@@ -78,7 +78,7 @@ export default function Pricing() {
               </CardHeader>
               <CardContent className="flex-grow">
                 <div className="mb-8">
-                  <span className="text-5xl font-extrabold text-slate-900">{formatPrice(tier.priceUSD)}</span>
+                  <span className="text-5xl font-extrabold text-slate-900">{formatPrice(tier.basePrice)}</span>
                   <span className="text-slate-600">/mo</span>
                 </div>
                 <ul className="space-y-4">

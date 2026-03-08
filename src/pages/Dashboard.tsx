@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Search, Rocket, Target, Users, MessageSquare, Receipt, Shield, Zap, Sparkles, TrendingUp } from "lucide-react";
+import { Search, Rocket, Target, Users, MessageSquare, Receipt, Zap, Sparkles, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const agents = [
   {
@@ -63,6 +64,8 @@ const agents = [
 ];
 
 export default function Dashboard() {
+  const { formatPrice } = useCurrency();
+
   return (
     <div className="min-h-[calc(100vh-4rem)] bg-slate-50 pb-12 pt-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,11 +97,11 @@ export default function Dashboard() {
           </div>
           <div className="flex items-center space-x-4 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
             <div className="rounded-2xl bg-blue-100 p-3">
-              <Users className="h-6 w-6 text-blue-600" />
+              <Zap className="h-6 w-6 text-blue-600" />
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-500 uppercase">Active Leads</p>
-              <p className="text-2xl font-bold text-slate-900">156 Handled</p>
+              <p className="text-sm font-medium text-slate-500 uppercase">Current Plan</p>
+              <p className="text-2xl font-bold text-slate-900">Pro ({formatPrice(49)}/mo)</p>
             </div>
           </div>
           <div className="flex items-center space-x-4 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
@@ -106,8 +109,8 @@ export default function Dashboard() {
               <Sparkles className="h-6 w-6 text-amber-600" />
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-500 uppercase">Time Saved</p>
-              <p className="text-2xl font-bold text-slate-900">42 Hours</p>
+              <p className="text-sm font-medium text-slate-500 uppercase">Est. Monthly Savings</p>
+              <p className="text-2xl font-bold text-slate-900">{formatPrice(1250)}</p>
             </div>
           </div>
         </div>
