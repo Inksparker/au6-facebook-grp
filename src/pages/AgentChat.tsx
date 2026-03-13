@@ -3,25 +3,85 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { 
   Rocket, Target, Users, MessageSquare, Receipt, Shield, Zap, Send, 
   ArrowLeft, MoreVertical, Sparkles, User, Briefcase, Layout,
-  Search, CheckCircle2, AlertCircle, Plus, Trash2, Mail, Phone, ExternalLink
+  Search, CheckCircle2, AlertCircle, Plus, Trash2, Mail, Phone, ExternalLink,
+  ShieldCheck, Globe2, Palette, Download, FileText, Lock
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const agents = {
-  visionary: { name: "The Visionary", icon: <Rocket className="h-5 w-5" />, color: "bg-violet-600", toolName: "Idea Validator" },
-  webwizard: { name: "WebWizard", icon: <Layout className="h-5 w-5" />, color: "bg-cyan-600", toolName: "Site Builder" },
-  "lead-magnet": { name: "LeadMagnet", icon: <Target className="h-5 w-5" />, color: "bg-rose-600", toolName: "Lead Search" },
-  saleflow: { name: "SaleFlow", icon: <Users className="h-5 w-5" />, color: "bg-blue-600", toolName: "Basic CRM" },
-  supportbot: { name: "SupportBot", icon: <MessageSquare className="h-5 w-5" />, color: "bg-emerald-600", toolName: "Support Desk" },
-  ledgerlink: { name: "LedgerLink", icon: <Receipt className="h-5 w-5" />, color: "bg-amber-600", toolName: "Bookkeeper" },
-  autopilot: { name: "AutoPilot", icon: <Zap className="h-5 w-5" />, color: "bg-fuchsia-600", toolName: "Automator" },
+  // Free
+  visionary: { name: "The Visionary", icon: <Rocket className="h-5 w-5" />, color: "bg-violet-600", toolName: "Idea Validator", status: "Free" },
+  supportbot: { name: "SupportBot", icon: <MessageSquare className="h-5 w-5" />, color: "bg-emerald-600", toolName: "Support Desk", status: "Free" },
+  "lead-magnet": { name: "LeadMagnet", icon: <Target className="h-5 w-5" />, color: "bg-rose-600", toolName: "Lead Search", status: "Free" },
+  saleflow: { name: "SaleFlow", icon: <Users className="h-5 w-5" />, color: "bg-blue-600", toolName: "Basic CRM", status: "Free" },
+  // Pro
+  legaleagle: { name: "LegalEagle Pro", icon: <ShieldCheck className="h-5 w-5" />, color: "bg-slate-700", toolName: "Legal Pack", status: "Pro" },
+  autopilot: { name: "AutoPilot Pro", icon: <Zap className="h-5 w-5" />, color: "bg-fuchsia-600", toolName: "Workflow Automator", status: "Pro" },
+  brandmaster: { name: "BrandMaster Pro", icon: <Palette className="h-5 w-5" />, color: "bg-orange-600", toolName: "Brand Kit", status: "Pro" },
+  // Premium
+  webwizard: { name: "WebWizard Elite", icon: <Layout className="h-5 w-5" />, color: "bg-cyan-600", toolName: "Site Builder", status: "Premium" },
+  ledgerlink: { name: "LedgerLink AI", icon: <Receipt className="h-5 w-5" />, color: "bg-amber-600", toolName: "Bookkeeper", status: "Premium" },
+  globalscale: { name: "GlobalScale Premium", icon: <Globe2 className="h-5 w-5" />, color: "bg-indigo-600", toolName: "Expansion Plan", status: "Premium" },
 };
 
-// --- Mock Data & Components ---
+// --- Tool Components ---
+
+const LegalTool = () => {
+  const documents = [
+    { name: "Standard Service Agreement", type: "Word", size: "45kb", date: "v2.4 - Mar 2024" },
+    { name: "Non-Disclosure Agreement (NDA)", type: "PDF", size: "12kb", date: "v1.1 - Feb 2024" },
+    { name: "Independent Contractor Agreement", type: "Word", size: "38kb", date: "v3.0 - Jan 2024" },
+    { name: "Website Terms & Conditions", type: "PDF", size: "110kb", date: "v4.2 - Apr 2024" },
+    { name: "Privacy Policy (GDPR Compliant)", type: "Word", size: "22kb", date: "v2.1 - Mar 2024" },
+  ];
+
+  return (
+    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="bg-gradient-to-r from-slate-900 to-slate-800 p-8 rounded-3xl text-white shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-4 opacity-10">
+           <ShieldCheck className="h-48 w-48 -mr-10 -mt-10" />
+        </div>
+        <div className="relative z-10">
+          <Badge className="mb-4 bg-slate-700 text-slate-100 hover:bg-slate-600 border-none">Pro Feature</Badge>
+          <h3 className="text-3xl font-extrabold mb-2">Legal Pack Generator</h3>
+          <p className="text-slate-300 max-w-md">Download industry-standard legal templates vetted by international firms. Fully customizable for your business needs.</p>
+        </div>
+      </div>
+
+      <div className="space-y-4">
+        <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest px-2">Available Documents</h4>
+        {documents.map((doc, i) => (
+          <Card key={i} className="group hover:border-slate-400 transition-all cursor-pointer">
+            <CardContent className="p-5 flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="h-12 w-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-700 font-bold group-hover:bg-slate-900 group-hover:text-white transition-colors">
+                  <FileText className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="font-bold text-slate-900">{doc.name}</p>
+                  <div className="flex items-center space-x-2 mt-1">
+                    <Badge variant="outline" className="text-[10px] py-0 px-1.5">{doc.type}</Badge>
+                    <span className="text-[10px] text-slate-400 font-medium">{doc.size} • {doc.date}</span>
+                  </div>
+                </div>
+              </div>
+              <Button size="sm" className="rounded-xl bg-slate-900 hover:bg-slate-800 space-x-2">
+                <Download className="h-4 w-4" />
+                <span className="hidden sm:inline">Download</span>
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// ... Rest of the tools (re-using existing ones) ...
 
 const IdeaValidatorTool = () => {
   const [idea, setIdea] = useState("");
@@ -67,7 +127,6 @@ const IdeaValidatorTool = () => {
           </Button>
         </CardContent>
       </Card>
-
       {report && (
         <Card className="border-emerald-100 bg-emerald-50/30 overflow-hidden">
           <div className="bg-emerald-600 p-4 text-white flex justify-between items-center">
@@ -156,7 +215,6 @@ const LeadSearchTool = () => {
           </div>
         </CardContent>
       </Card>
-
       {leads.length > 0 && (
         <div className="space-y-4">
           <p className="text-sm font-semibold text-slate-500 uppercase px-2">Results Found</p>
@@ -195,21 +253,17 @@ const CRMTool = () => {
     { id: 2, name: "Bob Builder", email: "bob@fixit.com", status: "Closed" },
     { id: 3, name: "Charlie Chocolate", email: "ceo@wonka.com", status: "Lead" },
   ]);
-
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
-
   const addContact = () => {
     if (!newName || !newEmail) return;
     setContacts(prev => [...prev, { id: Date.now(), name: newName, email: newEmail, status: "Lead" }]);
     setNewName("");
     setNewEmail("");
   };
-
   const deleteContact = (id: number) => {
     setContacts(prev => prev.filter(c => c.id !== id));
   };
-
   return (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <Card className="border-blue-100 shadow-sm">
@@ -229,7 +283,6 @@ const CRMTool = () => {
           </Button>
         </CardContent>
       </Card>
-
       <div className="space-y-3">
         {contacts.map((contact) => (
           <div key={contact.id} className="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-100 shadow-sm group hover:border-blue-200 transition-all">
@@ -297,19 +350,22 @@ export default function AgentChat() {
 
   const renderTool = () => {
     switch(agentId) {
+      case 'legaleagle': return <LegalTool />;
       case 'visionary': return <IdeaValidatorTool />;
       case 'lead-magnet': return <LeadSearchTool />;
       case 'saleflow': return <CRMTool />;
       default: return (
         <div className="flex flex-col items-center justify-center h-full text-center space-y-4 py-20">
           <div className="p-6 rounded-full bg-slate-100 text-slate-400">
-            <AlertCircle className="h-12 w-12" />
+            <Lock className="h-12 w-12" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-slate-900">Tool Coming Soon</h3>
-            <p className="text-slate-500">I'm currently working on building a custom tool for this agent.</p>
+            <h3 className="text-xl font-bold text-slate-900">Advanced Tool Access</h3>
+            <p className="text-slate-500 max-w-xs mx-auto">This powerful tool is only available to our Pro and Premium subscribers. Upgrade now to unlock full automation.</p>
           </div>
-          <Button onClick={() => setActiveTab('chat')} variant="outline">Back to Chat</Button>
+          <Link to="/pricing">
+            <Button className="bg-gradient-to-r from-violet-600 to-blue-600 text-white rounded-xl px-8 shadow-lg">Upgrade Now</Button>
+          </Link>
         </div>
       );
     }
@@ -330,7 +386,12 @@ export default function AgentChat() {
               {agent.icon}
             </div>
             <div>
-              <h2 className="text-lg font-bold text-slate-900">{agent.name}</h2>
+              <div className="flex items-center space-x-2">
+                <h2 className="text-lg font-bold text-slate-900">{agent.name}</h2>
+                {(agent.status === 'Pro' || agent.status === 'Premium') && (
+                  <Badge className="h-4 px-1.5 text-[8px] bg-gradient-to-r from-violet-600 to-blue-600 border-none">{agent.status}</Badge>
+                )}
+              </div>
               <div className="flex items-center text-xs font-medium text-emerald-600">
                 <span className="mr-1.5 h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 Operations Active
@@ -350,8 +411,8 @@ export default function AgentChat() {
             onClick={() => setActiveTab('tool')}
             className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all flex items-center ${activeTab === 'tool' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-500 hover:text-slate-700'}`}
           >
-            <Sparkles className="mr-1.5 h-3 w-3 text-violet-600" />
-            {(agent as any).toolName || "Tool"}
+            <Sparkles className="mr-1.5 h-3 w-3 text-blue-600" />
+            {agent.toolName || "Tool"}
           </button>
         </div>
 
@@ -421,7 +482,7 @@ export default function AgentChat() {
               </Button>
             </div>
             <p className="mt-3 text-center text-[10px] font-medium text-slate-500">
-              Powered by <span className="text-violet-600 font-bold">BoostaBizFlow</span> Logic Engine. Private & Secure.
+              Powered by <span className="text-violet-600 font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-blue-600">BoostaBizFlow</span> Logic Engine. Private & Secure.
             </p>
           </div>
         </div>
